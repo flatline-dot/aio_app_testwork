@@ -9,6 +9,7 @@ docker-compose up -d
 
 #### Run make_requests.py
 ````python
+python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt
 python3 make_requests.py --n <NUMBER OF REQUESTS> --attachment_depth <ATTACHMENT_DEPTH_JSON>
