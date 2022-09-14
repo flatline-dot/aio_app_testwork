@@ -10,7 +10,7 @@ from app import settings
 from app import db
 
 
-DCN = 'postgresql://{user}:{password}@{host}:{port}/{database}'.format(**settings.config['postgres'])
+DCN = 'postgresql://{user}:{password}@{host}:{port}/{database}'.format(**settings.config_init['postgres'])
 
 
 async def fetch_api(url, session, engine):
@@ -24,11 +24,11 @@ async def fetch_api(url, session, engine):
             request_item = await conn.execute(s)
             request = await request_item.first()
             process_status += 1
-            print(f'{request.id} - {request_uuid} Выполнено {process_status} из {num_tasks}')
+            print(f'{request.id} - {request_uuid} _______ Выполнено {process_status} из {num_tasks}')
 
 
 async def main(n, attachment_depth):
-    
+
     url = f'http://localhost:8080/{attachment_depth}'
 
     tasks = []
